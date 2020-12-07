@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title> Beau's Severely Disappointing Website</title>
+        <style>
+            body {
+                background: rgb(125, 198, 205);
+                color: rgb(45, 45, 45);
+                padding: 10px;
+                font-family: Verdana, Arial, sans-serif;
+            }
+            #all-contents {
+                max-width: 800px;
+                margin: auto;
+             }
+
+            /* navigation menu */
+            nav {
+                background: rgb(115, 115, 115);
+                margin: 0 auto;
+                display: flex;
+                padding: 10px;
+            }
+            h1 {
+                display: flex;
+                align-items: center;
+                color: white;
+                flex: 1;
+                margin: 0;
+                text-shadow: 2px 2px 5px red;
+            }
+            #nav-ul {
+                list-style-image: none;
+            }
+            .nav-li {
+                display: inline-block;
+                padding: 0 10px;
+            }
+            a {
+                text-decoration: none;
+                color: red;
+                text-shadow: 2px 2px 5px black;
+            }
+
+             /* main container area beneath menu */
+            main {
+                background: rgb(245, 238, 219);
+                display: flex;
+            }
+            .sidebar {
+                margin-right: 25px;
+                padding: 10px;
+            }
+            .sidebar-img {
+                width: 200px;
+            }
+            .content {
+                flex: 1;
+                padding: 15px;
+            }
+            #interests {
+                border: 4px silver ridge;
+                padding: 8px;
+            }
+            h2 {
+                margin: 0px;
+            }
+            h3 {
+                margin: 0px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div id="all-contents">
+            <nav>
+                <h1>Beau's Severely Disappointing Website</h1>
+                <ul id="nav-ul">
+                    <li class="nav-li">
+                        <a href="index.html"> Home </a>
+                    </li>
+                    <li class="nav-li">
+                        <a href="portfolio.html"> Portfolio </a>
+                     </li>
+            </nav>
+
+            <main>
+                <!--Sidebar Section-->
+                <div class="sidebar">
+                    <img class="sidebar-img" src="profilePic.jpg" width="150" height="150">
+                </div>
+
+                <!--Content Section-->
+                <div>
+                    <h2>Beau Bourgeois</h2>
+                    <p>Student at Northshore High.</p>
+
+                    <!--Interests Section-->
+                    <div>
+                        <h3>Interests</h3>
+                        <ul>
+                            <li>Coding</li>
+                            <li>Playing competitive video games</li>
+                            <li>Eating good food, I guess?</li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
