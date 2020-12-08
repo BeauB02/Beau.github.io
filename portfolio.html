@@ -2,18 +2,23 @@
 <html>
     <head>
         <title>Beau's Severely Disappointing Website</title>
-        <style>
+        <style type="text/css">
             body {
                 background: rgb(125, 198, 205);
                 color: rgb(45, 45, 45);
                 padding: 10px;
                 font-family: Verdana, Arial, sans-serif;
             }
+            header {
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+            
             #all-contents {
                 max-width: 800px;
                 margin: auto;
-             }
-
+            }
+    
             /* navigation menu */
             nav {
                 background: rgb(115, 115, 115);
@@ -36,74 +41,51 @@
                 display: inline-block;
                 padding: 0 10px;
             }
-            a {
+            .nav-a {
                 text-decoration: none;
                 color: red;
                 text-shadow: 2px 2px 5px black;
             }
-
-             /* main container area beneath menu */
+    
+            /* main container area beneath menu */
             main {
                 background: rgb(245, 238, 219);
                 display: flex;
             }
-            .sidebar {
-                margin-right: 25px;
-                padding: 10px;
-            }
-            .sidebar-img {
-                width: 200px;
-            }
             .content {
                 flex: 1;
                 padding: 15px;
+                font-family: "Copperplate", fantasy;
             }
-            #interests {
-                border: 4px silver ridge;
-                padding: 8px;
-            }
-            h2 {
-                margin: 0px;
-            }
-            h3 {
-                margin: 0px;
+            #portfolio-h1{
+                color: white;
+                text-shadow: 3px 3px 5px black;
             }
         </style>
     </head>
-    
+
     <body>
         <div id="all-contents">
             <nav>
                 <h1>Beau's Severely Disappointing Website</h1>
                 <ul id="nav-ul">
-                    <li class="nav-li">
-                        <a href="index.html"> Home </a>
-                    </li>
-                    <li class="nav-li">
-                        <a href="portfolio.html"> Portfolio </a>
-                     </li>
+                <li class="nav-li">
+                  <a class="nav-a" href="index.html">Home</a>
+                </li>
+                <li class="nav-li">
+                  <a class="nav-a" href="portfolio.html">Portfolio</a>
+                </li>
+                </ul>
             </nav>
-
             <main>
-                <!--Sidebar Section-->
-                <div class="sidebar">
-                    <img class="sidebar-img" src="profilePic.jpg" width="150" height="150">
-                </div>
-
-                <!--Content Section-->
-                <div>
-                    <h2>Beau Bourgeois</h2>
-                    <p>Student at Northshore High.</p>
-
-                    <!--Interests Section-->
-                    <div>
-                        <h3>Interests</h3>
-                        <ul>
-                            <li>Coding</li>
-                            <li>Playing competitive video games</li>
-                            <li>Eating good food, I guess?</li>
-                        </ul>
-                    </div>
+                <div class="content">
+                    <h1 id="portfolio-h1">Portfolio</h1>
+                    <ul id="portfolio">
+                        <li><a href="projects/platformer/">Platformer : A cannon - dodging, collectible - grabbing adventure game for Halleb0t</a></li>
+                        <li><a href="projects/bouncing-box/">Bouncing Box : A project that gives you a taste of game development on the web </a></li>
+                        <li><a href="projects/circularity/">Circularity : A motion poem using random number generation and velocity applied to circle shapes...</a></li>
+                        <li><a href=""></a>Coming Soon...</li>
+                    </ul>
                 </div>
             </main>
         </div>
