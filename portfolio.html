@@ -49,7 +49,7 @@
     
             /* main container area beneath menu */
             main {
-                background: rgb(245, 238, 219);
+                background: rgb(10, 10, 10);
                 display: flex;
             }
             .content {
@@ -57,9 +57,33 @@
                 padding: 15px;
                 font-family: "Copperplate", fantasy;
             }
+            .content h1 {
+                color: black;
+            }
+            
+            #portfolio {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            
+            #portfolio li {
+                background: #fff;
+                padding: 10px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+            
+            #portfolio li:hover {
+                background: #eee;
+            } 
+            
+            #portfolio a {
+                text-decoration: none;
+                color: #454545;
+            }
             #portfolio-h1{
                 color: white;
-                text-shadow: 3px 3px 5px black;
+                text-shadow: 2px 2px 5px blue;
             }
         </style>
     </head>
