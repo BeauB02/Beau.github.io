@@ -5,6 +5,7 @@ var background = function (window) {
     var draw = window.opspark.draw;
     var createjs = window.createjs;
     
+    
     /*
      * Create a background view for our game application
      */
@@ -26,7 +27,9 @@ var background = function (window) {
         var background;
         
         // ANIMATION VARIABLES HERE:
+        var tree;
         
+        var buildings = [];
      
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
@@ -36,21 +39,45 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth,canvasHeight,'yellow');
+            var backgroundFill = draw.rect(canvasWidth,canvasHeight,'black');
             background.addChild(backgroundFill);
             
             // TODO: 3 - Add a moon and starfield
+            for (var i = 0; i <= 200; i++) {
+                var circle = draw.circle(10,'white','LightGray',2);
+                circle.x = canvasWidth*Math.random();
+                circle.y = groundY*Math.random();
+                background.addChild(circle);
+            }
+
+            var moon = draw.bitmap('img/moon.png');
+            moon.x = 1200;
+            moon.y = -100;
+            moon.scaleX = .80;
+            moon.scaleY = .80;
+            background.addChild(moon);
             
             
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
+            for(var i=0;i<5;++i) {
+                var buildingHeight = (Math.random() * 226) + 75;
+                var building = draw.rect(75,buildingHeight,'LightGray','Black',1);
+                building.x = 200*i;
+                building.y = groundY-buildingHeight;
+                background.addChild(building);
+                buildings.push(building);
+            }
             
             
             // TODO 4: Part 1 - Add a tree
-            
+            tree = draw.bitmap('img/tree.png');
+            tree.x = 100;
+            tree.y = 200;
+            background.addChild(tree);
             
         } // end of render function - DO NOT DELETE
         
-        
+    
         // Perform background animation
         // called on each timer "tick" - 60 times per second
         function update() {
@@ -60,10 +87,22 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-            
+            tree.x = tree.x - 1.5;
+
+            if(tree.x < -220) {
+                tree.x = canvasWidth + 20;
+            }
             
             // TODO 5: Part 2 - Parallax
             
+            for (var i = 0; i < buildings.length; i++) {
+                var building = buildings[i];
+                
+                building.x = building.x - 1;
+                if (building.x < -200){
+                    building.x = canvasWidth;
+                }
+            }
 
         } // end of update function - DO NOT DELETE
         
