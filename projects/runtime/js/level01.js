@@ -16,12 +16,12 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-                { "type": "sawblade", "x": 400, "y": groundY },
-                { "type": "sawblade", "x": 600, "y": groundY },
-                { "type": "sawblade", "x": 900, "y": groundY },
-                { "type": "bread", "x": 1000, "y": groundY },
-                { "type": "enemy", "x": 500, "y": groundY },
-                { "type": "reward", "x": 350, "y": groundY },
+                { "type": "sawblade", "x": 400, "y": groundY},
+                { "type": "sawblade", "x": 700, "y": groundY},
+                { "type": "sawblade", "x": 1000, "y": groundY},
+                { "type": "bread", "x": 1500, "y": groundY-50},
+                { "type": "enemy", "x": 1200, "y": groundY-50},
+                { "type": "reward", "x": 1100, "y": groundY-50},
             ]
         };
         for (var i = 0; i < levelData.gameItems.length; i++){
@@ -35,7 +35,7 @@ var level01 = function (window) {
                 createBread(objX, objY);
             } else if (objType === 'enemy') {
                 createEnemy(objX, objY);
-            } else {
+            } else if(objType === 'reward'){
                 createReward(objX, objY);
             }
         };
@@ -59,16 +59,20 @@ var level01 = function (window) {
         }
 
         function createBread (x, y) {
-            var hitZoneSize = 25;
-            var damageFromObstacle = 10;
-            var breadHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
-            breadHitZone.x = x;
-            breadHitZone.y = y;
-            game.addGameItem(breadHitZone);    
-            var obstacleImage = draw.bitmap('img/bread.png');
-            obstacleImage.x = -25;
-            obstacleImage.y = -25;
-            breadHitZone.addChild(obstacleImage);
+            var bread = game.createGameItem('bread',25);
+            var breadImage = draw.bitmap('img/bread.png');
+            breadImage.x = -50;
+            breadImage.y = -50;
+            bread.addChild(breadImage);
+            bread.x = x;
+            bread.y = y;
+            game.addGameItem(bread);
+            bread.velocityX = -1;
+            rotationVelocity = 10;
+
+            bread.onPlayerCollision = function() {
+                game.changeIntegrity(-25);
+            };
         }
         
         function createEnemy (x, y) {
@@ -113,17 +117,7 @@ var level01 = function (window) {
         }
         //functions calls
         
-        createSawBlade(900, groundY);
-        createSawBlade(800, groundY);
-        createSawBlade(700, groundY); 
-
-        createBread(500, groundY);
-
-        createEnemy(500,groundY-50);
-        createEnemy(1500,groundY-50);
-        createEnemy(2500,groundY-50);
-
-        createReward(450, groundY);
+     
         // DO NOT EDIT CODE BELOW HERE
     }
 };
